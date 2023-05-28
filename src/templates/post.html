@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Creator</title>
+    <link href="static/dist/css/yseditor.css" rel="stylesheet">
+    <style>
+        #editor {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="yseditor"></div>
+    <form action="/post" method="post">
+      <input type="text" name="email" id="email_content" hidden>
+      <input type="text" name="subject" id="subject" placeholder="Subject ex: Email for press">
+      <button type="submit" onclick="set_email()">Submit</button>
+    </form>
+    <script src="static/dist/js/yseditor.js"></script>
+    <script>
+    var myEditor = new ysEditor({
+    // Editor wrapper
+    wrapper: '#yseditor',
+    // Toolbar options
+    toolbar: [
+      'undo', 'redo', 'bold', 'italic', 'underline',
+      'strikethrough', 'h1', 'h2', 'h3', 'p', 'quote',
+      'left', 'center', 'right', 'justify',
+      'ol', 'ul', 'sub', 'sup',
+      'removeformat'],
+    bottom: false,
+    // Content options
+    height: 200,
+    scroll: false,
+    includeContent: true,
+    // Footer options
+    footer: true,
+    footerText: 'Created by Yusuf SEZER'
+});
+
+    function set_email()
+    {
+      // make the input = the html inner body
+      let out = document.getElementById("email_content")
+      let inn = document.querySelector(".yseditor-content")
+    }
+    setInterval(set_email, 100);
+  
+    </script>
+</body>
+</html>
+
